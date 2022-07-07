@@ -85,7 +85,7 @@ int main() {
 
     // **Static Member data and function
     //cout << Hero::timeToComplete << endl;
-    cout << Hero::random() << endl;
+    // cout << Hero::random() << endl;
     // Hero a;
     // cout << a.timeToComplete << endl;
     // Hero b;
@@ -108,25 +108,25 @@ int main() {
 
 
     Hero hero1;
-
     hero1.setHealth(12);
     hero1.setLevel('D');
     char name[7] = "Babbar";
     hero1.setName(name);
 
-    hero1.print();
+    // hero1.print();
 
 // **use default copy constructor
-
-    Hero hero2(hero1);
-    hero2.print();
-//    Hero hero2 = hero1;
+// **yaha copy constructor call hote hai 
+    // Hero hero2(hero1);
+   Hero hero2 = hero1;
+    // hero2.print();
 
     hero1.name[0] = 'G';
     hero1.print();
 
     hero2.print();
 
+ // **yaha pe value assign hote hai copy nahi
     // hero1 = hero2;
 
     // hero1.print();
