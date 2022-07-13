@@ -122,6 +122,7 @@ int main() {
     // hero2.print();
 
     hero1.name[0] = 'G';
+    hero1.setHealth(133);
     hero1.print();
 
     hero2.print();

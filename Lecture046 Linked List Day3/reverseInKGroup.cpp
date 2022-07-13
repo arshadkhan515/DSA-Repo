@@ -1,46 +1,50 @@
-/****************************************************************
-    Following is the Linked List node structure
+/*
+Node *kReverse(Node *head, int k)
+{
 
-    class Node
+    if (head == NULL || head->next == NULL)
     {
-    public:
-        int data;
-        Node *next;
-        Node(int data)
-        {
-            this->data = data;
-            this->next = NULL;
-        }
-    };
-
-*****************************************************************/
-
-
-Node* kReverse(Node* head, int k) {
-    //base call
-    if(head == NULL) {
-        return NULL;
+        return head;
     }
-    
-    //step1: reverse first k nodes
-    Node* next = NULL;
-    Node* curr = head;
-    Node* prev = NULL;
-    int count= 0;
-    
-    while( curr != NULL && count < k ) {
-        next = curr -> next;
-        curr -> next = prev;
-        prev = curr;
-        curr = next;
-        count++;
+    Node *pre = NULL;
+    Node *curr = head;
+    int i = 0;
+    while (curr != NULL && i < k)
+    {
+        Node *forword = curr->next;
+        curr->next = pre;
+        pre = curr;
+        curr = forword;
+        i++;
     }
-    
-    //step2: Recursion dekhlega aage ka 
-    if(next != NULL) {
-        head -> next = kReverse(next,k);
+    if (curr != NULL)
+    {
+        Node *newNode = kReverse(curr, k);
+        head->next = newNode;
     }
-    
-    //step3: return head of reversed list
-    return prev;
+    return pre;
+}
+
+*/
+
+bool Is_LL_Circular(Node *head)
+{
+    if (head == NULL)
+    {
+        return true;
+    }
+    if (head->next == NULL)
+    {
+        return false;
+    }
+    Node *temp = head->next;
+    while (head != temp && temp != NULL)
+    {
+        temp = temp->next;
+    }
+    if (head == temp || temp == NULL)
+    {
+        return false;
+    }
+    return true;
 }

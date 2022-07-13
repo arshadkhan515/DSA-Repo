@@ -1,23 +1,25 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Student {
+class Student
+{
 
-    private:
-        string name;
-        int age;
-        int height;
+private:
+    string name;
+    int age;
+    int height;
 
-    public:
-    int getAge() {
+public:
+    int getAge()
+    {
         return this->age;
     }
 };
 
-int main() {
+int main()
+{
 
     Student first;
-
     cout << "Sab sahi chalra hai" << endl;
 
     return 0;
