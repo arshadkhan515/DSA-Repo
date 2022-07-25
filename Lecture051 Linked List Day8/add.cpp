@@ -1,4 +1,4 @@
-class Solution
+/*class Solution
 {
     private:
     Node* reverse(Node* head) {
@@ -81,4 +81,77 @@ class Solution
         
         return ans;
     }
-};
+};*/
+// **My Code 
+/*class Solution
+{
+    ListNode *reverseList(ListNode *head)
+    {
+        if (head == NULL || head->next == NULL)
+        {
+            return head;
+        }
+
+        ListNode *newHead = reverseList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return newHead;
+    }
+    void insert(ListNode *& head,ListNode *&tail,int data){
+        ListNode * newNode = new ListNode(data);
+        if(tail == NULL){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail->next = newNode;
+            tail = newNode;
+        }
+
+    }
+    
+    ListNode* add(struct ListNode* Fhead, struct ListNode* Shead){
+        int sum = 0;
+        int D = 0;
+        ListNode * ansHead = NULL;
+        ListNode * ansTail = NULL;
+        
+        while(Fhead != NULL || Shead != NULL || D != 0){
+            
+            int val1 = 0;
+            if(Fhead != NULL)
+            val1 = Fhead ->data;
+             
+            int val2 = 0;
+            if(Shead != NULL)
+            val2 = Shead->data;
+             
+             
+            sum = (val1 + val2) + D;
+            
+            int getLast = sum%10;
+            insert(ansHead,ansTail,getLast);
+            
+            D = sum/10;
+            
+            if(Fhead != NULL)
+            Fhead =Fhead->next;
+              if(Shead != NULL)
+            Shead = Shead->next;
+        }
+      
+        return ansHead;
+    }
+    public:
+    //Function to add two numbers represented by linked list.
+    struct ListNode* addTwoLists(struct ListNode* first, struct ListNode* second)
+    {
+        ListNode* Fhead = reverseList(first);
+        ListNode* Shead = reverseList(second);
+        
+        ListNode * SumHead = add(Fhead,Shead);
+        SumHead = reverseList(SumHead);
+        // cout<<sum<<endl;
+        return SumHead;
+        
+    }
+};*/

@@ -60,3 +60,19 @@ public:
     }
     return slow;
     */
+
+//**  reverse Doubly Linklist
+/*
+struct Node* reverseDLL(struct Node * head)
+{
+    if(head == NULL || head->next == NULL){
+        return head;
+    }
+
+   struct Node * newhead = reverseDLL(head->next);
+    head->next->next = head;
+    head->prev = head->next;
+    head->next = NULL;
+    return newhead;
+}
+*/

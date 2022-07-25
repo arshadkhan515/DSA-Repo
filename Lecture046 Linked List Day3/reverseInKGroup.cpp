@@ -42,9 +42,9 @@ bool Is_LL_Circular(Node *head)
     {
         temp = temp->next;
     }
-    if (head == temp || temp == NULL)
+    if (head == temp)
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }

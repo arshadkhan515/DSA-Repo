@@ -162,29 +162,22 @@ bool detectLoop(Node* head) {
 
 }
 
-Node* floydDetectLoop(Node* head) {
-
-    if(head == NULL)
+Node * floydDetectLoop(Node* head){
+    if (head == NULL)
+    {
         return NULL;
-
-    Node* slow = head;
+    }
+    Node * slow = head;
     Node* fast = head;
 
-    while(slow != NULL && fast !=NULL) {
-        
-        fast = fast -> next;
-        if(fast != NULL) {
-            fast = fast -> next;
-        }
+    while(slow != NULL && fast != NULL && fast->next != NULL){
+        slow = slow->next;
+        fast = fast->next->next;
 
-        slow = slow -> next;
-
-        if(slow == fast) {
-            cout << "present at " << slow -> data << endl;
+        if(slow == fast){
             return slow;
         }
     }
-
     return NULL;
 
 }
