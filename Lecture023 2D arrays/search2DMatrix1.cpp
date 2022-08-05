@@ -21,6 +21,7 @@ public:
                 return 1;
             }
             
+             
             if(element < target) {
                 start = mid+1;
             }
