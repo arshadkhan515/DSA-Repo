@@ -24,3 +24,5 @@ public:
 		return find_pivot(arr);
 	}
 };
+
+//? Approach 2
