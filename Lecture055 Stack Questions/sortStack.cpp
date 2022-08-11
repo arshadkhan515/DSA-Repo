@@ -29,3 +29,33 @@ void sortStack(stack<int> &stack)
     
     	sortedInsert(stack, num);
 }
+
+//? My Approach
+void insertEle(stack<int>&inputStack,int x) {
+    //base case
+    if(inputStack.empty() || x > inputStack.top())
+    {
+        inputStack.push(x);
+        return ; 
+    }
+
+    int num = inputStack.top();
+    inputStack.pop();
+
+    //RECURSIVE CALL
+    insertEle(inputStack, x);
+
+    inputStack.push(num);
+
+}
+
+void sortStack(stack<int> &myStack)
+{
+    if(myStack.empty() || myStack.size() == 1){
+        return;
+    }
+    int num = myStack.top();
+    myStack.pop();
+    sortStack(myStack);
+    insertEle(myStack,num); 
+}

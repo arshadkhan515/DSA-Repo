@@ -20,3 +20,18 @@ stack<int> pushAtBottom(stack<int>& myStack, int x)
     solve(myStack, x);
     return myStack;
 }
+
+//? MY Approach
+stack<int> pushAtBottom(stack<int>& myStack, int x) 
+{
+    if(myStack.empty()){
+        myStack.push(x);
+        return myStack;
+    }
+    
+    int num = myStack.top();
+    myStack.pop();
+    stack<int> newStack = pushAtBottom(myStack,x);
+    newStack.push(num);
+    return newStack;
+}

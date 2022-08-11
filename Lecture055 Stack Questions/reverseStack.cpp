@@ -29,3 +29,27 @@ void reverseStack(stack<int> &stack) {
     
     insertAtBottom(stack,num);
 }
+
+
+///? My Approach
+void pushAtBottom(stack<int>& myStack, int x) 
+{
+    if(myStack.empty()){
+        myStack.push(x);
+        return;
+    }
+
+    int num = myStack.top();
+    myStack.pop();
+    pushAtBottom(myStack,x);
+    myStack.push(num);
+}
+void reverseStack(stack<int> &myStack) {
+    if(myStack.empty() || myStack.size() == 1){
+        return;
+    }
+    int num = myStack.top();
+    myStack.pop();
+    reverseStack(myStack);
+    pushAtBottom(myStack,num); 
+}

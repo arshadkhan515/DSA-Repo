@@ -1,4 +1,19 @@
+//? iterative Approach
+void solve(stack<int>& input,int size,int count){
+    stack<int> temp;
+    while(count<size/2){
+        temp.push(input.top());
+        input.pop();
+        count++;
+    }
+    input.pop();
+    while(!temp.empty()){
+        input.push(temp.top());
+        temp.pop();
+    }
+}
 
+//? Recursively Approach
 void solve(stack<int>&inputStack, int count, int size) {
     //base case
     if(count == size/2) {
