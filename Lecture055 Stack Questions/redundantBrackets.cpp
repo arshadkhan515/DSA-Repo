@@ -2,34 +2,25 @@
 
 bool findRedundantBrackets(string &s)
 {
-    stack<char> st;
-    for(int i=0; i<s.length(); i++) {
-        char ch =s[i];
-        
-        if(ch == '(' || ch == '+' ||ch == '-' || ch == '*' || ch == '/') {
-            st.push(ch);
-        }
-        else
-        {
-            //ch ya toh ')' hai or lowercase letter
-            
-            if(ch == ')') {
-                bool isRedundant = true;
-                
-                while(st.top() != '(') {
-                    char top = st.top();
-                    if(top == '+' ||top == '-' || top == '*' || top == '/') {
-                        isRedundant = false;
-                    }
-                    st.pop();
+    stack<char> temp;
+    for(auto i:s){
+        if(i == '(' || (i >= 42 && i<=47)){
+            temp.push(i);
+        }else{
+            if(i == ')'){
+                bool ans = true;
+                while(!temp.empty() && temp.top() != '('){
+                    if(temp.top()>= 42 && temp.top() <= 47){
+                        ans = false;
+                        temp.pop();
+                    }                  
                 }
-                
-                if(isRedundant == true)
-                    return true;
-                st.pop();
+                if(ans)
+                    return ans;
+                if(!temp.empty())
+                    temp.pop();
             }
-            
-        } 
+        }
     }
     return false;
 }

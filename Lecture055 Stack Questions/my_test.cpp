@@ -42,7 +42,33 @@ void reverseStack(stack<int> &myStack)
     reverseStack(myStack);
     pushAtBottom(myStack, num);
 }
-
+int findMinimumCost(string str) {
+    if(str.size() % 2 == 1)
+        return -1;
+    stack<int> temp;
+    for(auto i:str){
+        if(i == '{'){
+            temp.push(i);
+        }else{
+            if(!temp.empty() && temp.top() == '{'){
+                temp.pop();
+            }else{
+                temp
+            }
+        }
+    }
+    int a = 0,b=0;
+    while(!temp.empty()){
+        if(temp.top() == '{'){
+            a++;
+        }else{
+            b++;
+        }
+        temp.pop();
+    }
+    int ans = (a+1)/2 + (b+1)/2;
+    return ans;
+}
 int main()
 {
 
@@ -50,11 +76,18 @@ int main()
     // cout << s<<endl;
     // reverseString(s);
     // cout << s<<endl;
-    stack<int> s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    reverseStack(s);
+    // stack<int> s;
+    // s.push(1);
+    // s.push(2);
+    // s.push(3);
+    // reverseStack(s);
+    // (a+b)(a+c*b)+(c))
+
+    // string s = "(a+c*b)+(c))";
+    // cout<<findRedundantBrackets(s);
+    string s = "{}}{}}";
+    cout<<findMinimumCost(s);
+
 
     return 0;
 }

@@ -1,19 +1,15 @@
-#include<stack>
+#include<bits/stdc++.h>
 vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
-    stack<int> s;
-    s.push(-1);
+    stack<int> temp;
     vector<int> ans(n);
-    
-    for(int i=n-1; i>=0 ; i--) {
-        int curr = arr[i];
-        while(s.top() >= curr)
-        {
-            s.pop();
+    temp.push(-1);
+    for(int i=n-1;i>=0;i--){  
+        while(arr[i]<=temp.top()){
+            temp.pop();
         }
-        //ans is stack ka top
-        ans[i] = s.top();
-        s.push(curr);
+        ans[i] = temp.top();
+        temp.push(arr[i]);
     }
     return ans;
 }
