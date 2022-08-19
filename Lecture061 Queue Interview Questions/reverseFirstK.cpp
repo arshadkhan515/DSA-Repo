@@ -60,3 +60,24 @@ queue<int> modifyQueue(queue<int> q, int k) {
     
     return q;
 }
+queue<int> modifyQueue(queue<int> q, int k) {
+    stack<int> temp;
+    int n= q.size();
+    
+    for(int i=0;i<k;i++){
+        temp.push(q.front());
+        q.pop();
+    }
+    
+    while(!temp.empty()){
+        q.push(temp.top());
+        temp.pop();
+    }
+    for(int i=0;i<n-k;i++){
+        int num = q.front();
+        q.pop();
+        q.push(num);
+    }
+
+    return q;
+}

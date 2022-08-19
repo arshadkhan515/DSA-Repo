@@ -26,22 +26,24 @@ class Solution{
     //the complete circle without exhausting its petrol in between.
     int tour(petrolPump p[],int n)
     {
-       int deficit = 0;
-       int balance = 0;
        int start = 0;
+       int balance = 0;
+       int distanc = 0;
        
-       for(int i=0; i<n; i++) {
-           balance += p[i].petrol - p[i].distance;
-           if(balance < 0) {
+       for(int i=0;i<n;i++){
+           balance = balance+ p[i].petrol - p[i].distance;
+           
+           if(balance < 0){
+               distanc += balance;
                start = i+1;
-               deficit += balance;
                balance = 0;
            }
        }
-       
-       if(balance + deficit >=0) 
-            return start;
-        return -1;
+       if(distanc + balance >=0){
+           return start;
+       }else{
+           return -1;
+       }
        
     }
 };
@@ -50,6 +52,28 @@ class Solution{
 
 // { Driver Code Starts.
 
+// ?Brute Force 
+int fun(int* p,int n){
+    for(int i=0;i<n;i++){
+        int forward = i;
+        int balance  = 0;
+
+        while (true)
+        {
+            balance += p[forward].petrol - p[forward].dis;
+            if(balance < 0){
+                break;
+            }else{
+                forward = (forward+1)%n;
+            }
+            if(i==forward){
+                return i;
+            }
+        }
+        
+    }
+    return -1;
+}
 int main()
 {
     int t;
