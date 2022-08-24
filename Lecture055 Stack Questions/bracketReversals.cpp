@@ -26,3 +26,42 @@ int findMinimumCost(string str) {
     int ans = (a+1)/2 + (b+1)/2;
     return ans;
 }
+
+#include<stack>
+int countBracketReversals(string input) {
+    stack<char> s;
+    int count = 0;
+    
+    if(input.size()%2 == 0){
+
+        for(auto i:input){
+            if(i == '{'){
+                s.push(i);
+            }else{
+                if(!s.empty() && s.top() == '{'){
+                       s.pop();
+                }else{
+                    s.push(i);
+                }
+
+            }
+        }
+        // Peek two bracket from the stack and compare them if both is equal then increment 1 otherwise 2
+        
+        //*   }{ this bracket make balance for reverse two times
+        while(!s.empty()){
+            char a = s.top();
+            s.pop();
+            char b = s.top();
+            s.pop();
+            if(a == b){
+                count++;
+            }else{
+                count += 2;
+            }
+        }
+    }else{
+        return -1;
+    }
+    return count;
+}
