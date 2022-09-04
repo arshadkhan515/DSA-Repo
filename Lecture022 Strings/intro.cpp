@@ -1,6 +1,13 @@
 #include<iostream> 
 using namespace std;
 
+//** check if string has numbers
+// return std::any_of(s.begin(), s.end(), ::isdigit);
+
+//** check if string has only alphanumerical character
+// iswalnum(s[n])
+
+
 char toLowerCase(char ch) {
     if(ch >='a' && ch <='z')
         return ch;
@@ -26,7 +33,54 @@ bool checkPalindrome(char a[], int n) {
     }
     return 1;
 }
+// Recursion Approach check Palindrome
+class Solution{
+public:	
+	 bool solve(string s,int i,int n){
+        if(i>=n){
+            return true;
+        }
+        if(tolower(s[i]) != tolower(s[n])){
+            return false;
+        }
 
+        bool small = solve(s,i+1,n-1);
+        
+        return small;
+    }
+	
+	int isPalindrome(string s)
+	{
+       return solve(s,0,s.size()-1);
+	}
+
+};
+class Solution {
+public:
+    bool solve(string s,int i,int n){
+        if(i>=n){
+            return true;
+        }
+        
+        while(i<n && !iswalnum(s[i]))
+            i++;
+        
+        while(i<n && !iswalnum(s[n]))
+            n--;
+        
+        if(tolower(s[i]) != tolower(s[n])){
+            return false;
+        }
+ 
+        return solve(s,i+1,n-1);
+
+    }
+    bool isPalindrome(string s) {
+       return solve(s,0,s.size()-1);
+    }
+};
+
+// Reverse String
 void reverse(char name[], int n) {
     int s=0;
     int e = n-1;
