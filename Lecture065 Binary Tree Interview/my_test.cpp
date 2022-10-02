@@ -6,13 +6,9 @@ public:
   {
     if (root == NULL)
     {
-      if (len > MaxLen)
+      if (len >= MaxLen)
       {
         MaxLen = len;
-        MaxSum = sum;
-      }
-      else if (len == MaxLen)
-      {
         MaxSum = sum;
       }
       return;
@@ -36,6 +32,8 @@ public:
 };
 
 //** Lowest Common Ancestor of a Binary Tree
+// Appraoch of this problem is to find the path from root to n1 and n2 and then find the last common node in both the paths
+
 class Solution
 {
 public:

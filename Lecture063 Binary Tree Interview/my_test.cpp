@@ -1,3 +1,17 @@
+// problem of custom class approach is we use a lot of time.
+// step of the approach is to create a custom class and then use it.
+// we can use a lot of time in this approach.
+
+
+/* first we create a custom class and then we use it.
+   base case
+   calls
+   perform operation for the answer
+   and fill the custom class with the answer.
+*/
+
+
+
 //** level Order Traversal
 class Solution {
 public:
@@ -59,5 +73,79 @@ public:
         
     }
 };
+
+//** BST to Sorted LL using class
+class Base{
+    public:
+    Node<int>* head;
+    Node<int>* tail;
+
+    Base(){
+        head = NULL;
+        tail = NULL;
+    }
+};
+Base solve(BinaryTreeNode<int>* root){
+    Base ans;
+
+    if(root == NULL){
+        return ans;
+    }
+    
+    Base l = solve(root->left);
+    Base r = solve(root->right);
+    Node<int>* newNode = new Node<int>(root->data);
+
+    if(l.tail != NULL){
+        l.tail->next = newNode;
+    }
+    newNode->next = r.head;
+    
+    if(l.head != NULL){
+        ans.head = l.head;
+    }else{
+        ans.head = newNode;
+    }
+    
+    if(r.tail != NULL){
+        ans.tail = r.tail;
+    }else{
+        ans.tail = newNode;
+    }
+    
+    return ans;
+
+}
+Node<int>* constructLinkedList(BinaryTreeNode<int>* root) {
+
+    return solve(root).head;
+
+}
+// ** BST to Sorted LL using Recursion
+Node<int>* constructLinkedList(BinaryTreeNode<int>* root) {
+	
+    if(root == NULL){
+        return NULL;
+    }
+    
+    Node<int> * l = constructLinkedList(root->left);
+    Node<int> * r = constructLinkedList(root->right);
+    
+    
+    Node<int> * head = new Node<int>(root->data);
+    if(l == NULL){
+        head->next = r;
+        return head;
+    }else{
+        Node<int>* temp = l;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = head;
+        head->next = r;
+        return l;
+    }
+    
+}
 
 

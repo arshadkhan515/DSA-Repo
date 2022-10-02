@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-void swap(int a = 5, int b = 7)
-{
-    int a = a ^ b;
-    int b = a ^ b;
-    a = a ^ b;
-}
-
+// void swap(int a = 5, int b = 7)
+// {
+//     int a = a ^ b;
+//     int b = a ^ b;
+//     a = a ^ b;
+// }
+//  
 int main()
 {
 

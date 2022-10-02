@@ -5,10 +5,10 @@ void update(int **p2) {
     //p2 = p2 + 1;
     //kuch change hoga  - NO
 
-    //*p2 = *p2 + 1;
+    *p2 = *p2 + 1;
     //kuch change hoga - YES
 
-    **p2 = **p2 + 1;
+    // **p2 = **p2 + 1;
     //kuch change hoga - YES
 }
     void update(int *p){
@@ -18,23 +18,23 @@ void update(int **p2) {
         ++(**p);
     }
 int main() {
-/*
+
     int i = 5;
     int* p = &i;
     int** p2 = &p;
 
     cout<< endl << endl <<" Sab sahi chal rha h " << endl << endl ;
 
-    cout << i << endl;
-    cout << *p << endl;
-    cout << **p2 << endl;
+    // cout << i << endl;
+    // cout << *p << endl;
+    // cout << **p2 << endl;
 
-    cout << &i << endl;
-    cout << p << endl;
-    cout << *p2 << endl;
+    // cout << &i << endl;
+    // cout << p << endl;
+    // cout << *p2 << endl;
 
-    cout << &p << endl;
-    cout << p2 << endl;
+    // cout << &p << endl;
+    // cout << p2 << endl;
 
     cout << endl << endl;
     cout<< "before " << i << endl;
@@ -45,7 +45,7 @@ int main() {
     cout<< "after " << p << endl;
     cout<< "after " << p2 << endl;
     cout << endl << endl;
-    */
+    
 
 
 

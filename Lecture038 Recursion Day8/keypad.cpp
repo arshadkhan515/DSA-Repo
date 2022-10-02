@@ -1,3 +1,10 @@
+
+// key pad problem using recursion 
+// we have to print all the possible words that can be formed from the given number
+// for example if the number is 23 then the possible words are ad,ae,af,bd,be,bf,cd,ce,cf
+// because 23 is the combination of a,b,c and d,e,f
+
+// we are use the recursion to solve this problem exclude and include method
 class Solution {
 private:
     void solve(string digit, string output, int index, vector<string>& ans, string mapping[] ) {
