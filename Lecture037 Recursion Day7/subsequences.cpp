@@ -21,3 +21,41 @@ vector<string> subsequences(string str){
     return ans;
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void solve(vector<int>&ans,string )
+vector<string> subsequences(string str){
+	
+	vector<string> ans;
+    string output = "";
+    int i = 0;
+    solve(ans,str,output,i);
+    return ans;
+	
+}

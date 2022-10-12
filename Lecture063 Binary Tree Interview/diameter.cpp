@@ -1,3 +1,8 @@
+// what is diameter of a binary tree
+// diameter of a binary tree is the longest path between any two nodes in a tree
+// max of all the diameters of the left and right subtree and the sum of the height of the left and right subtree + 1
+
+
 #include <bits/stdc++.h>
 using namespace std;
 

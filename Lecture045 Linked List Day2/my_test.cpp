@@ -17,6 +17,8 @@ public:
 };
 */
 /*
+  reverseList using iteration method
+  take 3 pointers to reverse the linklist
 class Solution
 {
 public:
