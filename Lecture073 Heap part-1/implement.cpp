@@ -35,7 +35,7 @@ class Heap{
 
            while(indx > 1){    
               int parent = (indx)/2;
-              // to make (min-heap) to (max-heap) change only if condition
+              // to make (min-heap) from (max-heap) change only if condition
               if(arr[parent] < arr[indx]){
                     swap(arr[parent],arr[indx]);                  
               }else{

@@ -18,3 +18,7 @@
 // for representation of heap we use array.  (we can use linked list also but array is better)
 // because in array we can access any element in O(1) time.
 // in linked list we can access any element in O(n) time.
+
+// the time complexity of heap operations is O(log n) time.
+// and insertion and deletion is O(log n) time.
+// here n is the number of elements in the heap.
