@@ -62,21 +62,37 @@ public:
 
     bool search(Node *root, string s)
     {
-        if (s.size() == 0)
+        // if (s.size() == 0)
+        // {
+        //     return root->terminal;
+        // }
+        // int index = s[0] - 'A';
+        // Node *child;
+        // if (root->children[index] != NULL && root->children[index]->data == s[0])
+        // {
+        //     child = root->children[index];
+        // }
+        // else
+        // {
+        //     return false;
+        // }
+        // return search(child, s.substr(1));
+        for (int i = 0; i < s.size(); i++)
         {
-            return root->terminal;
+            int index = s[i] - 'A';
+            if (root->children[index] != NULL)
+            {
+                root = root->children[index];
+            }
+            else
+            {
+                return false;
+            }
         }
-        int index = s[0] - 'A';
-        Node *child;
-        if (root->children[index] != NULL && root->children[index]->data == s[0])
-        {
-            child = root->children[index];
-        }
+        if (root->terminal)
+            return true;
         else
-        {
             return false;
-        }
-        return search(child, s.substr(1));
     }
 
     void remove(Node *root, string s)
@@ -132,6 +148,6 @@ int main()
     root->searchWord("abcd");
     root->removeWord("abcd");
     root->searchWord("abcd");
-    root->removeWord("abcd");
+    // root->removeWord("abcd");
     return 0;
 }
