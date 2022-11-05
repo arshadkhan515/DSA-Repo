@@ -9,6 +9,10 @@ public:
         this->data = data;
         this->next = NULL;
     }
+    ~Node()
+    {
+        delete next;
+    }
 };
 
 void print(Node *head)

@@ -15,4 +15,9 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
+    ~BNode()
+    {
+        delete left;
+        delete right;
+    }
 };

@@ -19,34 +19,6 @@ public:
 
     // Note : every character is mapped to a array of size 26 (for 26 alphabets) and the index of the array is the ascii value of the character - 97 (for a) and so on and so forth
 
-    void insert(Node *root, string val)
-    {
-        if (val.size() == 0)
-        {
-            root->terminal = true;
-            return;
-        }
-        int index = val[0] - 'A';
-        Node *child;
-
-        if (root->children[index] != NULL && root->children[index]->data == val[0])
-        {
-            child = root->children[index];
-        }
-        else
-        {
-            Node *newNode = new Node(val[0]);
-            root->children[index] = newNode;
-            child = newNode;
-        }
-        insert(child, val.substr(1));
-    }
-
-    void insertWord(string s)
-    {
-        insert(root, s);
-    }
-
     void print()
     {
         if (root == NULL)
@@ -115,6 +87,66 @@ public:
         remove(child, s.substr(1));
     }
 
+    void insert(Node *root, string val)
+    {
+        if (val.size() == 0)
+        {
+            root->terminal = true;
+            return;
+        }
+        int index = val[0] - 'A';
+        Node *child;
+
+        if (root->children[index] != NULL && root->children[index]->data == val[0])
+        {
+            child = root->children[index];
+        }
+        else
+        {
+            Node *newNode = new Node(val[0]);
+            root->children[index] = newNode;
+            child = newNode;
+        }
+        insert(child, val.substr(1));
+    }
+
+    Node *removeWithNode(Node *root, string s)
+    {
+        if (s.size() == 0)
+        {
+            if (root->terminal)
+            {
+                for (int i = 0; i < root->children[i]; i++)
+                {
+                    if (root->children[i] != NULL)
+                    {
+                        return root;
+                    }
+                }
+                // return root;
+                return NULL;
+            }
+        }
+
+        int ind = s[0] - 'A';
+        Node *child = root->children[ind];
+
+        if (child == NULL)
+        {
+            return NULL;
+        }
+        else
+        {
+            root->children[ind] = removeWithNode(child, s.substr(1));
+        }
+        return root;
+    }
+
+    void insertWord(string s)
+    {
+        insert(root, s);
+    }
+
     void searchWord(string s)
     {
         if (search(root, s))
@@ -131,7 +163,8 @@ public:
     {
         if (search(root, s))
         {
-            remove(root, s);
+            // remove(root, s);
+            removeWithNode(root, s);
         }
         else
         {
