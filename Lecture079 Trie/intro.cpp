@@ -13,3 +13,6 @@
 // https://www.geeksforgeeks.org/compressed-tries/
 // image of compressed trie https://media.geeksforgeeks.org/wp-content/uploads/20201124222534/GFGFINAL.png
 
+// ** how to implement suffix trie
+// https://www.geeksforgeeks.org/pattern-searching-using-trie-suffixes/
+// image of suffix trie (banana) https://media.geeksforgeeks.org/wp-content/uploads/trieSuffix.jpg

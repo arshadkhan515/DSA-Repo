@@ -9,3 +9,7 @@
 //in worst case the height of the tree can be n.
 // so the time complexity of binary tree operations is O(n) time.
 // and insertion and deletion is O(n) time.
+
+// two types of traversal in binary tree (bfs and dfs)
+// bfs - level order traversal
+// dfs - preorder, inorder, postorder traversal

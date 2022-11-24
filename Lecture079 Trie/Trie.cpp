@@ -109,21 +109,28 @@ public:
         }
         insert(child, val.substr(1));
     }
-
+    
+    bool IsChildrenPresent(Node *root)
+    {
+        for (int i = 0; i < 26; i++)
+        {
+            if (root->children[i] != NULL)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     Node *removeWithNode(Node *root, string s)
     {
         if (s.size() == 0)
         {
             if (root->terminal)
             {
-                for (int i = 0; i < root->children[i]; i++)
+                if (IsChildrenPresent(root))
                 {
-                    if (root->children[i] != NULL)
-                    {
-                        return root;
-                    }
+                    return root;
                 }
-                // return root;
                 return NULL;
             }
         }
@@ -133,11 +140,15 @@ public:
 
         if (child == NULL)
         {
-            return NULL;
+            return root;
         }
         else
         {
             root->children[ind] = removeWithNode(child, s.substr(1));
+        }
+        if (IsChildrenPresent(root) && root->terminal == false)
+        {
+            return NULL;
         }
         return root;
     }

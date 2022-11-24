@@ -2,7 +2,7 @@
 #include<math.h>
 using namespace std;
 
-
+// https://stackoverflow.com/questions/5771520/why-is-the-maximum-value-of-an-unsigned-n-bit-integer-2%E2%81%BF-1-and-not-2%E2%81%BF
 int main() {
 
     int n;
