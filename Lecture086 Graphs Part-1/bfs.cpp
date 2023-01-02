@@ -61,6 +61,14 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
 
 
 //** problem 2:
+<<<<<<< HEAD
+// https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/
+// Problem on gfg -- https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
+class Solution {
+  public:
+     //** this is bfs function complexity is O(V+E) **//
+    // time complexity O(V)+O(E) = O(V+E) 
+=======
 // BFS using adjacency List
 // problem link: https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 // Article -- https://takeuforward.org/graph/breadth-first-search-bfs-level-order-traversal/
@@ -69,6 +77,7 @@ class Solution
 public:
     //** this is bfs function complexity is O(V+E) **//
     // time complexity O(V)+O(E) = O(V+E)
+>>>>>>> e1b4ad7876eb43a5ce21dd4c74ce8ab16464b71a
     // space complexity = O(V)
     void bfs(vector<int> adj[], vector<bool> &visited, vector<int> &ans, int node)
     {
