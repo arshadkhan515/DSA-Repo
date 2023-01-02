@@ -10,7 +10,33 @@
    and fill the custom class with the answer.
 */
 
-
+// https://practice.geeksforgeeks.org/problems/ancestors-in-binary-tree/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+//** Ancestors in Binary Tree
+class Solution{
+  public:
+    // Function should return all the ancestor of the target node
+    bool buildAns(struct Node*root,int t,vector<int>& ans){
+        if(root == NULL)
+          return false;
+        if(root->data == t)
+         return true;
+         
+         bool l = buildAns(root->left,t,ans);
+         bool r = buildAns(root->right,t,ans);
+         if(l || r){
+             ans.push_back(root->data);
+             return true;
+         }
+         return false;
+    }
+    vector<int> Ancestors(struct Node *root, int target)
+    {
+         vector<int> ans;
+         buildAns(root,target,ans);
+         return ans;
+         
+    }
+};
 
 //** level Order Traversal
 class Solution {

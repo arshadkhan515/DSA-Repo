@@ -55,7 +55,7 @@ int diameter(Node *root)
 
 
 
-
+// https://www.codingninjas.com/codestudio/problems/unival-trees_697311?leftPanelTab=0
 
 //** Check for Balanced Tree
 class Solution{
