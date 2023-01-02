@@ -1,5 +1,5 @@
 # Detect the cycle in a undirected graph
-## Article Link: https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-dfs/
+## Article Link: https://takeuforward.org/data-structure/detect-cycle-in-an-undirected-graph-using-bfs/
 ## Using BFS
 ### Time Complexity: O(V+2E) = O(V+E)
 ### Space Complexity: O(V)

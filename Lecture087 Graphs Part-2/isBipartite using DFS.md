@@ -17,11 +17,11 @@ public:
         colors[node] = parentColor; // color the current node as the parent color
 
             for(auto neb:adj[node]){
-                if(colors[neb] == -1){ // if the color of the neighbour is not assigned
-                    bool ans = dfs(adj,colors,neb,!colors[node]); // assign the opposite color to the neighbour
+                if(colors[neb] == -1){ // if the color of the neighbor is not assigned
+                    bool ans = dfs(adj,colors,neb,!colors[node]); // assign the opposite color to the neighbor
                     if(ans == false)
                      return false;
-                }else if(colors[neb] == colors[node]){ // if the color of the neighbour is same as the current node
+                }else if(colors[neb] == colors[node]){ // if the color of the neighbor is same as the current node
                     return false;
                 }
 
